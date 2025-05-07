@@ -1,0 +1,559 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff0f6;
+  color: #880e4f;
+}
+
+.logo {
+  width:100%;
+  margin: 20px auto;
+  display: block;
+}
+
+.login-screen {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.login-screen input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  border-radius: 10px;
+  border: 1px solid #e91e63;
+}
+
+.login-screen button {
+  padding: 10px 30px;
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#error-msg {
+  color: red;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.main-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #e91e63;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  height: 60px;
+}
+
+.navbar-logo {
+  width: 40px;
+  border-radius: 70px;
+  margin-right: 10px;
+}
+
+.navbar-toggle {
+  background-color: transparent;
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #f8bbd0;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar li i {
+  margin-right: 10px;
+}
+
+/* Sidebar Toggle (Mobile) */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* Content Section */
+.content {
+  margin-left: 200px;
+  padding: 80px 20px 20px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+  }
+}
+
+/* Section */
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.animated {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Poem Content */
+.poem-content {
+  margin-top: 20px;
+  font-style: italic;
+  background-color: #fce4ec;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+}
+
+.slide {
+  display: none;
+  text-align: center;
+}
+
+.slide-image {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.caption {
+  color: #e91e63;
+  font-size: 20px;
+  padding: 10px;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0 0 15px 15px;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: #e91e63;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 3px;
+  user-select: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 4px;
+  background-color: #f48fb1;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.active, .dot:hover {
+  background-color: #e91e63;
+}
+
+@keyframes fade {
+  from { opacity: .4 } 
+  to { opacity: 1 }
+}
+
+video {
+  margin-top: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.slideshow-container {
+  
+  position: relative;
+  width: 100%;
+  height: 70vh; /* Full screen height */
+  overflow: hidden;
+}
+@media (max-width: 720px) {
+  .slideshow-container {
+    height: 50vh; /* ለስልክ ማያ ተስማሚ */
+  }
+  .slide-image {
+    object-fit: contain; /* ፎቶ ሙሉ በሙሉ ይታይ */
+    background-color: #000; /* ጥቁር በሰማያዊ ለሚቆረጡ ክፍሎች */
+  }
+  .navbar span, .sidebar li {
+    font-size: 14px; /* ጽሑፍ ትንሽ ለማድረግ */
+  }
+}
+.slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  animation: fade 1.5s ease-in-out;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.caption {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  background: rgba(0,0,0,0.3);
+  border: none;
+  user-select: none;
+  transform: translateY(-50%);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 4px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active, .dot:hover {
+  background-color: #e91e63;
+}
+.poem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.poem-button {
+  background-color: #f06292;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.poem-button:hover {
+  background-color: #ec407a;
+  transform: scale(1.05);
+}
+
+.poem-content {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff0f6;
+  border-left: 5px solid #e91e63;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #880e4f;
+}
+.quote-slideshow {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  min-height: 120px;
+}
+
+.quote-slide {
+  display: none;
+  font-size: 22px;
+  color: #880e4f;
+  background-color: #fff0f6; /* your lovely soft pink */
+  padding: 20px 30px;
+  margin: 20px auto;
+  border-radius: 15px;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  transition: all 0.5s ease-in-out;
+}
+
+.quote-slide.active {
+  display: block;
+}
+
+.quote-slide.active {
+  display: block;
+}
+/* የሚንሸራተቱ ልቦች አኒሜሽን */
+@keyframes floatHeart {
+  0% { transform: translateY(0) rotate(0); opacity: 1; }
+  100% { transform: translateY(-100px) rotate(20deg); opacity: 0; }
+}
+
+.floating-heart {
+  position: fixed;
+  font-size: 24px;
+  animation: floatHeart 3s ease-in forwards;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+
+.megbiya {
+ 
+  font-size: 19px;
+  color: #880e4f;
+  background-color: #fff0f6; /* your lovely soft pink */
+  padding: 20px 30px;
+  margin: 20px auto;
+  border-radius: 15px;
+  max-width: 70%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  transition: all 0.5s ease-in-out;
+}
+.image-section-title {
+  background: linear-gradient(to right, #e91e63, #ad1457);
+  color: white;
+  font-family: 'Nyala', 'Noto Sans Ethiopic', sans-serif;
+  font-size: 20px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+/* የቪድዮ ክፍል */
+.section-title {
+  color: #e91e63;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* የፍለጋ ባህሪ */
+.video-search {
+  position: relative;
+  margin: 20px 0;
+  max-width: 500px;
+}
+
+.video-search input {
+  width: 86%;
+  padding: 12px 20px;
+  border: 2px solid #e91e63;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+.video-search .bi-search {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #e91e63;
+}
+
+/* የቪድዮ ጋለሪ */
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 10px;
+}
+
+.video-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+}
+
+.video-wrapper {
+  position: relative;
+  aspect-ratio: 16/9;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video-wrapper:hover .video-overlay {
+  opacity: 1;
+}
+
+.play-btn {
+  background: rgba(233, 30, 99, 0.8);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* የቪድዮ መረጃ */
+.video-info {
+  padding: 15px;
+}
+
+.video-info h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.video-date {
+  color: #888;
+  font-size: 14px;
+}
+
+.video-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.like-btn, .share-btn {
+  background: none;
+  border: none;
+  color: #e91e63;
+  font-size: 18px;
+  cursor: pointer;
+}
