@@ -1,0 +1,1003 @@
+/* Romantic Theme Styles */
+:root {
+    --primary-love: #e91e63;
+    --secondary-love: #ff80ab;
+    --dark-love: #ad1457;
+    --light-love: #fce4ec;
+    --gold-accent: #ffd700;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Noto Sans Ethiopic', sans-serif;
+    background: #fff0f6 url('assets/love-bg.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #880e4f;
+    overflow-x: hidden;
+}
+
+/* Romantic Login Screen */
+.login-screen {
+    position: relative;
+    overflow: hidden;
+}
+
+.heart-animation {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatHearts 15s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes floatHearts {
+    0% { transform: translateY(100vh) translateX(10vw); opacity: 0; }
+    100% { transform: translateY(-10vh) translateX(20vw); opacity: 0.6; }
+}
+
+.welcome-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--dark-love);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.love-button {
+    background: linear-gradient(45deg, var(--primary-love), var(--dark-love));
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+}
+
+.love-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.6);
+}
+
+/* Romantic Content Enhancements */
+.romantic-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.bismillah {
+    color: var(--gold-accent);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.love-letter {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid var(--primary-love);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    line-height: 1.8;
+    position: relative;
+}
+
+.love-letter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: url('assets/letter-top.png') repeat-x;
+}
+
+.love-stamp {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transform: rotate(15deg);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-family: 'Dancing Script', cursive;
+}
+
+.signature {
+    margin-top: 3rem;
+    text-align: right;
+    font-style: italic;
+}
+
+.signature-line {
+    display: inline-block;
+    width: 150px;
+    height: 1px;
+    background: var(--primary-love);
+    margin: 5px 0;
+}
+
+.signature-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--dark-love);
+}
+
+/* Floating Hearts Animation */
+#floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* [Rest of your existing styles remain with romantic enhancements] */
+/* Poems Section Styling */
+#poems {
+    padding: 2rem;
+    background: linear-gradient(to bottom, #fff0f6, #ffe5f0);
+    min-height: 100vh;
+  }
+  
+  .image-section-title {
+    font-family: 'Dancing Script', cursive, 'Noto Sans Ethiopic', sans-serif;
+    font-size: 2.5rem;
+    color: #e91e63;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  
+  .image-section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #e91e63, #ff80ab);
+  }
+  
+  .poem-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .poem-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .poem-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.2);
+  }
+  
+  .poem-button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(to right, #e91e63, #ff5252);
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .poem-button:hover {
+    background: linear-gradient(to right, #d81b60, #ff4081);
+  }
+  
+  .poem-button::before {
+    content: "❤️";
+    font-size: 1.2rem;
+  }
+  
+  .poem-content {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    background: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid #f8bbd0;
+    font-family: 'Noto Sans Ethiopic', sans-serif;
+  }
+  
+  .poem-content b {
+    color: #e91e63;
+    font-weight: bold;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Animation for poem items */
+  @keyframes fadeInPoem {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .poem-item {
+    animation: fadeInPoem 0.5s ease-out forwards;
+  }
+  
+  .poem-item:nth-child(1) { animation-delay: 0.1s; }
+  .poem-item:nth-child(2) { animation-delay: 0.2s; }
+  .poem-item:nth-child(3) { animation-delay: 0.3s; }
+  .poem-item:nth-child(4) { animation-delay: 0.4s; }
+  .poem-item:nth-child(5) { animation-delay: 0.5s; }
+  .poem-item:nth-child(6) { animation-delay: 0.6s; }
+  .poem-item:nth-child(7) { animation-delay: 0.7s; }
+  .poem-item:nth-child(8) { animation-delay: 0.8s; }
+  .poem-item:nth-child(9) { animation-delay: 0.9s; }
+  .poem-item:nth-child(10) { animation-delay: 1s; }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #poems {
+      padding: 1rem;
+    }
+    
+    .image-section-title {
+      font-size: 2rem;
+    }
+    
+    .poem-button {
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
+    }
+    
+    .poem-content {
+      font-size: 1rem;
+      padding: 1rem;
+    }
+  }
+  
+  /* Special styling for Amharic text */
+  .poem-content {
+    font-family: 'Noto Sans Ethiopic', 'Nyala', sans-serif;
+    font-size: 1.1rem;
+    line-height: 2;
+    text-align: justify;
+  }
+  
+  /* Romantic scrollbar for poem content */
+  .poem-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .poem-content::-webkit-scrollbar-track {
+    background: #fce4ec;
+  }
+  
+  .poem-content::-webkit-scrollbar-thumb {
+    background: #e91e63;
+    border-radius: 10px;
+  }
+  
+  /* Poem content reveal animation */
+  .poem-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+  }
+  
+  .poem-content:not(.hidden) {
+    max-height: 2000px; /* Adjust based on your longest poem */
+    transition: max-height 0.8s ease-in;
+  }
+  /* Image Slideshow Section */
+#images {
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #fff5f7, #ffeef2);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #images::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/heart-pattern.png') repeat;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  #images h2 {
+    font-family: 'Dancing Script', cursive, 'Noto Sans Ethiopic', sans-serif;
+    font-size: 2.8rem;
+    color: #e91e63;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  
+  #images h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 3px;
+    background: linear-gradient(to right, #e91e63, #ff80ab);
+    border-radius: 3px;
+  }
+  
+  /* Slideshow Container */
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.2);
+  }
+  
+  /* Slides */
+  .slide {
+    display: none;
+    position: relative;
+    animation: fade 1.5s ease-in-out;
+  }
+  
+  .slide.active {
+    display: block;
+  }
+  
+  @keyframes fade {
+    from {opacity: 0.4}
+    to {opacity: 1}
+  }
+  
+  .slide-image {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide:hover .slide-image {
+    transform: scale(1.02);
+  }
+  
+  /* Caption Text */
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+    font-family: 'Dancing Script', cursive, 'Noto Sans Ethiopic', sans-serif;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+  
+  /* Next & Previous Buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(233, 30, 99, 0.5);
+    backdrop-filter: blur(5px);
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(233, 30, 99, 0.8);
+    transform: scale(1.1);
+  }
+  
+  /* Dots/Bullets/Indicators */
+  .dots-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #f8bbd0;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease, transform 0.3s ease;
+  }
+  
+  .dot:hover {
+    background-color: #ff80ab;
+    transform: scale(1.2);
+  }
+  
+  .dot.active {
+    background-color: #e91e63;
+    transform: scale(1.2);
+  }
+  
+  /* Romantic Overlay Effect */
+  .slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(233, 30, 99, 0.1), rgba(255, 128, 171, 0.1));
+    pointer-events: none;
+  }
+  
+  /* Floating Hearts Animation */
+  .slide:hover::before {
+    content: "❤️";
+    position: absolute;
+    font-size: 2rem;
+    animation: floatHeart 3s linear forwards;
+    opacity: 0.8;
+    z-index: 2;
+  }
+  
+  @keyframes floatHeart {
+    0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+    100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #images h2 {
+      font-size: 2.2rem;
+    }
+    
+    .slide-image {
+      height: 50vh;
+    }
+    
+    .caption {
+      font-size: 1rem;
+      padding: 15px;
+    }
+    
+    .prev, .next {
+      padding: 12px;
+      font-size: 20px;
+    }
+    
+    .dot {
+      height: 12px;
+      width: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #images h2 {
+      font-size: 1.8rem;
+    }
+    
+    .slide-image {
+      height: 40vh;
+    }
+    
+    .caption {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  }
+  
+  /* Amharic Text Special Styling */
+  .caption {
+    font-family: 'Noto Sans Ethiopic', 'Nyala', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Auto-slideshow animation */
+  @keyframes slideAnimation {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  .slide {
+    animation: slideAnimation 8s infinite;
+  }
+  
+  .slide:nth-child(1) { animation-delay: 0s; }
+  .slide:nth-child(2) { animation-delay: 8s; }
+  .slide:nth-child(3) { animation-delay: 16s; }
+  /* Continue for all slides */
+  /* Romantic Quotes Section */
+#quotes {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #e91e63, #ff4081);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  #quotes::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/heart-pattern-white.png') repeat;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  
+  /* Section Title */
+  .section-title {
+    font-family: 'Dancing Script', cursive, 'Noto Sans Ethiopic', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+  }
+  
+  /* Quote Slideshow Container */
+  .quote-slideshow {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem;
+  }
+  
+  /* Individual Quote Slides */
+  .quote-slide {
+    display: none;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #880e4f;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+  }
+  
+  .quote-slide::before {
+    content: "“";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 5rem;
+    color: rgba(233, 30, 99, 0.2);
+    font-family: serif;
+    line-height: 1;
+  }
+  
+  .quote-slide::after {
+    content: "”";
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 5rem;
+    color: rgba(233, 30, 99, 0.2);
+    font-family: serif;
+    line-height: 1;
+  }
+  
+  .quote-slide.active {
+    display: block;
+    animation: quoteFadeIn 1.5s ease-out;
+  }
+  
+  @keyframes quoteFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px) rotateX(20deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+  }
+  
+  /* Amharic and English Quote Styling */
+  .quote-slide {
+    font-family: 'Noto Sans Ethiopic', 'Nyala', 'Segoe UI', sans-serif;
+  }
+  
+  .quote-slide:lang(en) {
+    font-family: 'Dancing Script', cursive, 'Segoe UI', sans-serif;
+  }
+  
+  /* Floating Hearts Animation */
+  #quotes::after {
+    content: "💖";
+    position: absolute;
+    font-size: 2rem;
+    animation: floatHeart 8s linear infinite;
+    opacity: 0.6;
+  }
+  
+  @keyframes floatHeart {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translate(100px, -100vh) rotate(360deg); opacity: 0; }
+  }
+  
+  /* Navigation Dots */
+  .quote-dots {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .quote-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .quote-dot.active {
+    background: white;
+    transform: scale(1.3);
+  }
+  
+  .quote-dot:hover {
+    background: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #quotes {
+      padding: 3rem 1rem;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .quote-slide {
+      font-size: 1.2rem;
+      padding: 2rem 1.5rem;
+    }
+    
+    .quote-slide::before, 
+    .quote-slide::after {
+      font-size: 3rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 1.8rem;
+    }
+    
+    .quote-slide {
+      font-size: 1rem;
+      padding: 1.5rem 1rem;
+    }
+    
+    .quote-slideshow {
+      padding: 1rem;
+    }
+  }
+  
+  /* Special Effects */
+  .quote-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  }
+  
+  /* Auto-rotation Animation */
+  @keyframes rotateQuotes {
+    0%, 20% { opacity: 1; transform: translateY(0); }
+    25%, 45% { opacity: 0; transform: translateY(20px); }
+    50%, 70% { opacity: 1; transform: translateY(0); }
+    75%, 95% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Add this to your script.js to activate auto-rotation */
+  /* Romantic Video Gallery Section */
+#videos {
+    padding: 3rem 1rem;
+    background: linear-gradient(to bottom, #fff0f5, #ffe5ee);
+    min-height: 100vh;
+  }
+  
+  /* Section Title */
+  #videos .section-title {
+    font-family: 'Dancing Script', cursive, 'Noto Sans Ethiopic', sans-serif;
+    font-size: 2.8rem;
+    color: #e91e63;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  #videos .section-title i {
+    font-size: 2.5rem;
+  }
+  
+  /* Video Search */
+  .video-search {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+  
+  .video-search input {
+    width: 100%;
+    padding: 12px 20px;
+    padding-right: 45px;
+    border: 2px solid #f8bbd0;
+    border-radius: 30px;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+  }
+  
+  .video-search input:focus {
+    outline: none;
+    border-color: #e91e63;
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+  }
+  
+  .video-search .bi-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e91e63;
+    font-size: 1.2rem;
+  }
+  
+  /* Video Gallery */
+  .video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  /* Video Cards */
+  .video-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(233, 30, 99, 0.2);
+  }
+  
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+  }
+  
+  .video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .video-card:hover .video-overlay {
+    opacity: 1;
+  }
+  
+  .play-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(233, 30, 99, 0.8);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+  
+  .play-btn:hover {
+    background: rgba(233, 30, 99, 1);
+    transform: scale(1.1);
+  }
+  
+  /* Video Info */
+  .video-info {
+    padding: 1.2rem;
+  }
+  
+  .video-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-family: 'Noto Sans Ethiopic', 'Nyala', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .video-date {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans Ethiopic', sans-serif;
+  }
+  
+  .video-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .like-btn {
+    background: none;
+    border: none;
+    color: #e91e63;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 5px;
+  }
+  
+  .like-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  .like-btn.liked {
+    color: #e91e63;
+  }
+  
+  /* Heart beat animation when liked */
+  @keyframes heartBeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.3); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+  
+  .like-btn.liked i {
+    animation: heartBeat 0.8s ease;
+  }
+  
+  /* Romantic Decorations */
+  .video-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(233, 30, 99, 0.05), rgba(255, 128, 171, 0.05));
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .video-gallery {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    #videos .section-title {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .video-gallery {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+    
+    #videos .section-title {
+      font-size: 1.8rem;
+    }
+    
+    .video-search {
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  /* Fullscreen Video Player (keep this in your CSS) */
+  /* [Your existing fullscreen video player styles] */
+  

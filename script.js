@@ -1,6 +1,6 @@
 let failedAttempts = 0;
 const MAX_ATTEMPTS = 3;
-const LOCK_TIME = 60000; // 30 ሰከንድ
+const LOCK_TIME = 60000; // 1 minute
 
 function login() {
     const username = document.getElementById("username").value;
@@ -16,14 +16,14 @@ function login() {
         return;
     }
 
-    if (username === "mylove" && password === "z@123") {
-        failedAttempts = 0; // የስህተት ሞክሮችን ዳግም ያስጀምሩ
+    if (username === "1" && password === "1") {
+        failedAttempts = 0;
         document.getElementById("login-screen").classList.add("hidden");
         document.getElementById("main-app").classList.remove("hidden");
     } else {
         failedAttempts++;
         const remainingAttempts = MAX_ATTEMPTS - failedAttempts;
-        errorMsg.textContent = `ትክክል ያልሆነ የይለፍ ቃል ተጠቅመዋል አላህን ይፍሩ! እረስተው ከሆነ ድጋሜ ይሞክሩ ${remainingAttempts}) አድል አለዎት`;
+        errorMsg.textContent = `ትክክል ያልሆነ የይለፍ ቃል ተጠቅመዋል አላህን ይፍሩ! እረስተው ከሆነ ድጋሜ ይሞክሩ ${remainingAttempts} አድል አለዎት`;
         
         if (failedAttempts >= MAX_ATTEMPTS) {
             errorMsg.textContent += " ስርዓቱ በጊዜያዊ ሁኔታ ተሰናክሏል።";
@@ -35,154 +35,324 @@ function login() {
     }
 }
 
+let sidebarOpen = false;
 
 function toggleSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  sidebar.classList.toggle("open");
-}
-
-// Navigation and auto-close sidebar
-function navigateTo(sectionId) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById(sectionId).classList.add('active');
-
-  const sidebar = document.getElementById("sidebar");
-  sidebar.classList.remove("open"); // Auto-close sidebar on navigation
-}
-
-// Poem display logic
-function showPoem(poemId) {
-  const content = {
-    poem1: "My heart beats for you alone, every beat a love tone.",
-    poem2: "An eternal flame that never dies, your love lights up my skies."
+    const sidebar = document.getElementById("sidebar");
+    sidebarOpen = !sidebarOpen;
     
-  };
-  document.getElementById("poem-content").innerText = content[poemId];
+    if (sidebarOpen) {
+        sidebar.classList.add("open");
+        createOverlay();
+    } else {
+        sidebar.classList.remove("open");
+        removeOverlay();
+    }
 }
 
-// Slideshow functionality
+function createOverlay() {
+    const overlay = document.createElement("div");
+    overlay.id = "sidebar-overlay";
+    overlay.style.position = "fixed";
+    overlay.style.top = "70px";
+    overlay.style.left = "0";
+    overlay.style.right = "0";
+    overlay.style.bottom = "0";
+    overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
+    overlay.style.zIndex = "40";
+    overlay.onclick = toggleSidebar;
+    document.body.appendChild(overlay);
+}
+
+function removeOverlay() {
+    const overlay = document.getElementById("sidebar-overlay");
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
+function navigateTo(sectionId) {
+    document.querySelectorAll('.section').forEach(s => {
+        s.classList.remove('active');
+    });
+    
+    const activeSection = document.getElementById(sectionId);
+    activeSection.classList.add('active');
+    
+    if (sidebarOpen) {
+        toggleSidebar();
+    }
+    
+    const content = document.querySelector('.content');
+    if (content) {
+        content.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function togglePoem(poemId) {
+    const poem = document.getElementById(poemId);
+    poem.classList.toggle("hidden");
+}
+
 let slideIndex = 1;
 
 function showSlide(n) {
-  const slides = document.getElementsByClassName("slide");
-  const dots = document.getElementsByClassName("dot");
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
 
-  if (n > slides.length) slideIndex = 1;
-  if (n < 1) slideIndex = slides.length;
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
 
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
 
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");
-  }
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
 
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].classList.add("active");
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].classList.add("active");
 }
 
 function plusSlides(n) {
-  showSlide(slideIndex += n);
+    showSlide(slideIndex += n);
 }
 
 function currentSlide(n) {
-  showSlide(slideIndex = n);
+    showSlide(slideIndex = n);
 }
 
-// Auto slideshow every 4 seconds
 function autoShowSlides() {
-  slideIndex++;
-  showSlide(slideIndex);
-  setTimeout(autoShowSlides, 4000);
+    plusSlides(1);
+    setTimeout(autoShowSlides, 4000);
 }
 
-// Start slideshow after content is ready
-document.addEventListener("DOMContentLoaded", () => {
-  showSlide(slideIndex);  // Show first slide
-  autoShowSlides();       // Start automatic transition
-});
-function togglePoem(poemId) {
-  const poem = document.getElementById(poemId);
-  poem.classList.toggle("hidden");
-}
 let quoteIndex = 0;
 
 function showQuotes() {
-  const quotes = document.querySelectorAll(".quote-slide");
-  quotes.forEach(q => q.classList.remove("active"));
+    const quotes = document.querySelectorAll(".quote-slide");
+    quotes.forEach(q => q.classList.remove("active"));
 
-  quoteIndex++;
-  if (quoteIndex > quotes.length) quoteIndex = 1;
+    quoteIndex++;
+    if (quoteIndex > quotes.length) quoteIndex = 1;
 
-  quotes[quoteIndex - 1].classList.add("active");
+    quotes[quoteIndex - 1].classList.add("active");
 
-  setTimeout(showQuotes, 5000); // Change every 5 seconds
+    setTimeout(showQuotes, 5000);
 }
 
-document.addEventListener("DOMContentLoaded", showQuotes);
-// ሙሉ ማያ ቪድዮ ለማሳየት
+/* ====================== */
+/* ENHANCED VIDEO SECTION */
+/* ====================== */
+
+function createHearts(element) {
+    const rect = element.getBoundingClientRect();
+    const hearts = ['❤️', '💖', '💗', '💓', '💘'];
+    
+    for (let i = 0; i < 5; i++) {
+        const heart = document.createElement('div');
+        heart.style.position = 'fixed';
+        heart.style.left = `${rect.left + rect.width/2}px`;
+        heart.style.top = `${rect.top}px`;
+        heart.style.fontSize = `${Math.random() * 20 + 15}px`;
+        heart.style.opacity = '1';
+        heart.style.zIndex = '1000';
+        heart.style.pointerEvents = 'none';
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        document.body.appendChild(heart);
+        
+        const animation = heart.animate([
+            { transform: 'translateY(0) scale(1)', opacity: 1 },
+            { transform: `translateY(-${Math.random() * 100 + 50}px) translateX(${(Math.random() - 0.5) * 50}px) scale(0)`, opacity: 0 }
+        ], {
+            duration: 1000 + Math.random() * 1000,
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+        });
+        
+        animation.onfinish = () => heart.remove();
+    }
+}
+
 function playFullscreen(videoSrc) {
-  const fullscreenDiv = document.createElement('div');
-  fullscreenDiv.style.position = 'fixed';
-  fullscreenDiv.style.top = '0';
-  fullscreenDiv.style.left = '0';
-  fullscreenDiv.style.width = '100%';
-  fullscreenDiv.style.height = '100%';
-  fullscreenDiv.style.backgroundColor = 'rgba(0,0,0,0.9)';
-  fullscreenDiv.style.zIndex = '1000';
-  fullscreenDiv.style.display = 'flex';
-  fullscreenDiv.style.justifyContent = 'center';
-  fullscreenDiv.style.alignItems = 'center';
-  
-  const video = document.createElement('video');
-  video.src = videoSrc;
-  video.controls = true;
-  video.autoplay = true;
-  video.style.maxWidth = '90%';
-  video.style.maxHeight = '90%';
-  
-  const closeBtn = document.createElement('button');
-  closeBtn.innerHTML = '&times;';
-  closeBtn.style.position = 'absolute';
-  closeBtn.style.top = '20px';
-  closeBtn.style.right = '20px';
-  closeBtn.style.background = 'none';
-  closeBtn.style.border = 'none';
-  closeBtn.style.color = 'white';
-  closeBtn.style.fontSize = '30px';
-  closeBtn.style.cursor = 'pointer';
-  
-  fullscreenDiv.appendChild(video);
-  fullscreenDiv.appendChild(closeBtn);
-  document.body.appendChild(fullscreenDiv);
-  
-  closeBtn.addEventListener('click', () => {
-      document.body.removeChild(fullscreenDiv);
-  });
+    const fullscreenDiv = document.createElement('div');
+    fullscreenDiv.style.position = 'fixed';
+    fullscreenDiv.style.top = '0';
+    fullscreenDiv.style.left = '0';
+    fullscreenDiv.style.width = '100%';
+    fullscreenDiv.style.height = '100%';
+    fullscreenDiv.style.backgroundColor = 'rgba(0,0,0,0.95)';
+    fullscreenDiv.style.zIndex = '1000';
+    fullscreenDiv.style.display = 'flex';
+    fullscreenDiv.style.flexDirection = 'column';
+    fullscreenDiv.style.justifyContent = 'center';
+    fullscreenDiv.style.alignItems = 'center';
+    fullscreenDiv.style.padding = '20px';
+    fullscreenDiv.style.boxSizing = 'border-box';
+    
+    const videoContainer = document.createElement('div');
+    videoContainer.style.position = 'relative';
+    videoContainer.style.width = '90%';
+    videoContainer.style.maxWidth = '900px';
+    videoContainer.style.borderRadius = '10px';
+    videoContainer.style.overflow = 'hidden';
+    videoContainer.style.boxShadow = '0 0 0 3px #e91e63, 0 0 20px rgba(233, 30, 99, 0.5)';
+    
+    const video = document.createElement('video');
+    video.src = videoSrc;
+    video.controls = true;
+    video.autoplay = true;
+    video.style.width = '100%';
+    video.style.height = 'auto';
+    video.style.maxHeight = '80vh';
+    video.style.display = 'block';
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '<i class="bi bi-x-lg"></i>';
+    closeBtn.style.position = 'absolute';
+    closeBtn.style.top = '15px';
+    closeBtn.style.right = '15px';
+    closeBtn.style.background = 'rgba(233, 30, 99, 0.8)';
+    closeBtn.style.border = 'none';
+    closeBtn.style.color = 'white';
+    closeBtn.style.width = '40px';
+    closeBtn.style.height = '40px';
+    closeBtn.style.borderRadius = '50%';
+    closeBtn.style.fontSize = '20px';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.display = 'flex';
+    closeBtn.style.justifyContent = 'center';
+    closeBtn.style.alignItems = 'center';
+    closeBtn.style.transition = 'all 0.3s ease';
+    
+    closeBtn.addEventListener('mouseenter', () => {
+        closeBtn.style.transform = 'scale(1.1)';
+        closeBtn.style.background = 'rgba(233, 30, 99, 1)';
+    });
+    
+    closeBtn.addEventListener('mouseleave', () => {
+        closeBtn.style.transform = 'scale(1)';
+        closeBtn.style.background = 'rgba(233, 30, 99, 0.8)';
+    });
+    
+    closeBtn.addEventListener('click', () => {
+        document.body.removeChild(fullscreenDiv);
+    });
+    
+    videoContainer.appendChild(video);
+    videoContainer.appendChild(closeBtn);
+    fullscreenDiv.appendChild(videoContainer);
+    
+    const videoCard = document.querySelector(`video[src="${videoSrc}"]`).closest('.video-card');
+    if (videoCard) {
+        const title = videoCard.querySelector('h3')?.textContent;
+        if (title) {
+            const titleElement = document.createElement('h3');
+            titleElement.textContent = title;
+            titleElement.style.color = 'white';
+            titleElement.style.marginTop = '15px';
+            titleElement.style.fontFamily = '"Dancing Script", cursive, "Noto Sans Ethiopic", sans-serif';
+            titleElement.style.fontSize = '1.8rem';
+            titleElement.style.textAlign = 'center';
+            fullscreenDiv.appendChild(titleElement);
+        }
+    }
+    
+    document.body.appendChild(fullscreenDiv);
 }
 
-// የቪድዮ ፍለጋ ባህሪ
 function searchVideos() {
-  const searchTerm = document.getElementById('video-search').value.toLowerCase();
-  const videos = document.querySelectorAll('.video-card');
-  
-  videos.forEach(video => {
-      const title = video.getAttribute('data-title').toLowerCase();
-      if (title.includes(searchTerm)) {
-          video.style.display = 'block';
-      } else {
-          video.style.display = 'none';
-      }
+    const searchTerm = document.getElementById('video-search').value.toLowerCase();
+    const videos = document.querySelectorAll('.video-card');
+    const noResults = document.getElementById('no-video-results');
+    
+    let hasResults = false;
+    
+    videos.forEach(video => {
+        const title = video.getAttribute('data-title').toLowerCase();
+        if (title.includes(searchTerm)) {
+            video.style.display = 'block';
+            hasResults = true;
+        } else {
+            video.style.display = 'none';
+        }
+    });
+    
+    if (!hasResults) {
+        if (!noResults) {
+            const noResultsMsg = document.createElement('div');
+            noResultsMsg.id = 'no-video-results';
+            noResultsMsg.textContent = 'No videos found matching your search';
+            noResultsMsg.style.textAlign = 'center';
+            noResultsMsg.style.padding = '2rem';
+            noResultsMsg.style.color = '#e91e63';
+            noResultsMsg.style.fontFamily = '"Dancing Script", cursive';
+            noResultsMsg.style.fontSize = '1.5rem';
+            document.querySelector('.video-gallery').appendChild(noResultsMsg);
+        }
+    } else if (noResults) {
+        noResults.remove();
+    }
+}
+
+function initVideoSection() {
+  document.querySelectorAll('.video-card').forEach(card => {
+      const video = card.querySelector('video');
+      const playBtn = card.querySelector('.play-btn'); // Add this class to your play button
+      
+      card.addEventListener('mouseenter', () => {
+          if (video) {
+              video.currentTime = 0;
+              video.play().catch(e => console.log('Autoplay prevented:', e));
+              if (playBtn) playBtn.style.display = 'none';
+          }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+          if (video) {
+              video.pause();
+              if (playBtn) playBtn.style.display = 'block';
+          }
+      });
+      
+      // Add click handler for fullscreen
+      video?.addEventListener('click', () => {
+          playFullscreen(video.src);
+      });
   });
 }
 
-// ላይክ ባህሪ
 document.querySelectorAll('.like-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-      this.classList.toggle('liked');
-      this.innerHTML = this.classList.contains('liked') ? 
-          '<i class="bi bi-heart-fill"></i>' : 
-          '<i class="bi bi-heart"></i>';
-  });
+    btn.addEventListener('click', function() {
+        this.classList.toggle('liked');
+        
+        if (this.classList.contains('liked')) {
+            this.innerHTML = '<i class="bi bi-heart-fill"></i>';
+            createHearts(this);
+        } else {
+            this.innerHTML = '<i class="bi bi-heart"></i>';
+        }
+    });
+});
+
+document.querySelector('.youtube-container')?.addEventListener('click', function() {
+    this.querySelector('iframe').src += "&autoplay=1";
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    showSlide(slideIndex);
+    autoShowSlides();
+    showQuotes();
+    initVideoSection();
+    
+    document.querySelectorAll('.sidebar li').forEach(item => {
+        item.addEventListener('click', function(e) {
+            const sectionId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            navigateTo(sectionId);
+            e.preventDefault();
+        });
+    });
 });

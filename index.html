@@ -1,578 +1,607 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#e91e63" />
-    <title>My Love</title>
+    <title>My Love ❤️</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+    <link rel="stylesheet" href="style1.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
     <div class="app-container">
-      <!-- Login Screen -->
-      <div id="login-screen" class="login-screen">
-        <img src="assets/logo.jpg" alt="Logo" class="logo" />
-        <h2>Welcome My Love</h2>
-        <input type="text" id="username" placeholder="Username" />
-        <input type="password" id="password" placeholder="Password" />
-        <button onclick="login()">Enter</button>
-        <p id="error-msg"></p>
-      </div>
-
-      <!-- Main App -->
-      <div id="main-app" class="main-app hidden">
-        <!-- Navbar -->
-        <div class="navbar">
-          <div class="navbar-left">
-            <img src="assets/logo.jpg" class="navbar-logo" alt="logo" />
-            <span style="font-size: 15px"
-              >My Love <br />&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(የኔ
-              ውድ)</span
-            >
-          </div>
-          <div class="navbar-right">
-            <span style="font-size: 15px"
-              >"Forever Yours💖<br />(ለዘላለም ያንቺው ነኝ!) "</span
-            >
-          </div>
-          <button class="navbar-toggle" onclick="toggleSidebar()">☰</button>
+        <!-- Login Screen -->
+        <div id="login-screen" class="login-screen">
+            <div class="heart-animation">❤️</div>
+            <img src="assets/logo.jpg" alt="Our Love" class="logo pulse" />
+            <h2 class="welcome-title">Welcome My Love</h2>
+            <div class="input-group">
+                <i class="bi bi-person-heart"></i>
+                <input type="text" id="username" placeholder="Your Name" />
+            </div>
+            <div class="input-group">
+                <i class="bi bi-heart-lock"></i>
+                <input type="password" id="password" placeholder="Our Secret" />
+            </div>
+            <button onclick="login()" class="love-button">
+                <i class="bi bi-heart-fill"></i> Enter Our World
+            </button>
+            <p id="error-msg"></p>
         </div>
 
-        <!-- Sidebar -->
-        <div class="sidebar" id="sidebar">
-          <ul>
-            <li onclick="navigateTo('welcome')">
-              <i class="bi bi-house-heart"></i> መግቢያ
-            </li>
-            <li onclick="navigateTo('poems')">
-              <i class="bi bi-heart-fill"></i> ግጥሞች
-            </li>
-            <li onclick="navigateTo('images')">
-              <i class="bi bi-image-fill"></i> ፎቶዎች
-            </li>
-            <li onclick="navigateTo('quotes')">
-              <i class="bi bi-chat-heart"></i> ጥቅሶች
-            </li>
-            <!-- <li onclick="navigateTo('quotes')"><i class="fas fa-quote-left"></i> ጥቅሶች</li> -->
-
-            <li onclick="navigateTo('videos')">
-              <i class="bi bi-camera-reels-fill"></i> ቪድዮዎች
-            </li>
-          </ul>
-        </div>
-
-        <!-- Content -->
-        <div class="content">
-          <div id="welcome" class="section active megbiya">
-            <h2 class="animated">💕 እንኳን ደህና መጣሽ 💕</h2>
-            <h4>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h4>
-            <p class="">
-              <em>
-                በመጀመሪያ አንቺን የመሰለች ልዩ እንስት ለሰጠኝ ጌታ አልሐምዱሊላሂ ረቢል ዓለሚን! ምስጋና ሁሉ
-                ለአለማቱ ጌታ ለአላህ (ሱ.ወ) የተገባ ይሁን። ውድ ባለቤቴ... የህይወቴ ፀዳል፣ የቤቴ እርጋታ፣
-                የልቤ የደስታ ምንጭ!</em
-              >
-              <br />
-
-              አላህ (ሱ.ወ) በሰፊው ጸጋው ለኔ አንቺን ስላደለኝ ምንኛ ምስጉን ነኝ! አንቺ የኔ መልካም እጣ ፋንታዬ፣
-              የችግሬ መፍትሄ፣ የደስታዬም ማብቂያ የለሽ ምንጭ ነሽ።<br />
-
-              አንቺን የመሰለች ገር፣ አዛኝ፣ ዲንሽና ቤተሰቧን የምትወድ ሚስት ስለሰጠኝ አላህን በየጊዜው
-              አመሰግነዋለሁ። ይህ በእርግጥም የአላህ ትልቅ ውለታው ነው!. ይህ አፕሊኬሽን የፍቅራችን ማሳያ፣
-              የትዝታዎቻችን መዝገብ፣ የአንድነታችንም ምልክት እንዲሆን ታስቦ የተሰራ ነው። በውስጡ የፍቅር
-              መልእክቶቻችንን፣ የደስታ ጊዜዎቻችንን፣ ያሳለፍናቸውን ውብ ትዝታዎች እንዲሁም ወደፊትም አብረን ለመኖር
-              ያሰብናቸውን መልካም እቅዶች ይዟል። አላህ ሆይ! ፍቅራችንን በዱንያም በአኺራም ዘላቂ አድርግልን።
-              በመልካም ነገር ላይ አግዘን፤ ከክፉ ነገርም ጠብቀን። ልጆቻችንንና ትውልዳችንን በመልካም እምነት
-              አሳድግልን። ውዴ ሆይ! ይህ አፕሊኬሽን ለአንቺ ያለኝን ጥልቅ ፍቅርና ምስጋና በትንሹም ቢሆን የሚገልጽልኝ
-              ስጦታዬ ነው። እንኳን ደህና መጣሽ! ህይወቴ በአንቺ ተሞልቷል!
-            </p>
-          </div>
-
-          <div id="poems" class="section">
-            <h2 style="color: bisque; margin-left: 1%" class="animated">
-              ግጥሞች
-            </h2>
-            <div class="poem-list">
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem2')">
-                  🌹የማለዳ ፀሀይ
-                </button>
-                <div id="poem2" class="poem-content hidden">
-                  🌹<b>የኔ ውድ 🌹</b><br />
-                          አንቺ ማለት ለኔ <br />
-                     በአይኔ ተለኩሰሽ<br />
-                     በልቤ የበራሽ<br />
-                     መቼም የማትጠፊ<br />
-                     የልቤ ሻማ ነሽ<br />
-                       <b>🌹 የኔ ጣፋጭ🌹<br /></b>       አንቺ ማለት ለኔ<br />
-                        ከማለዳው ፀሀይ<br />
-                        ብርሀን ፍንጣቂው<br />
-                         ከውቧ ጨረቃ<br />
-                         ምሽቱን አድማቂ<br />
-                         ከሚያምሩት ኮከቦች<br />
-                         ነሽ የምትልቂ<br />
-
-                          <b> 🌹የኔ ህይወት🌹<br /></b>             አንቺ ማለት ለኔ<br />
-                            ከልቤ ላይ ውለሽ<br />
-                           በልቤ የምታድሪ<br />
-                      የውስጤ ንግስት ነሽ<br />
-                       ሁሌም የምትኖሪ።<br />
-
-                  ረበና የሰጠኝ ከኔጋ ነዋሪ<br />
-                  ረበና ሰጠኝ ከኔጋ ነዋሪ!!!
-                </div>
-              </div>
-
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem3')">
-                  🌙 ከ ጅምር እስካሁን
-                </button>
-                <div id="poem3" class="poem-content hidden">
-                  እንዲህ ነበር ውዴ ልንገርሽ በግጥም<br />
-                  ጓደኞቸ ሲሉኝ ለምን አታገባም<br />
-                  ይደብራል እኮ ያለትዳር አለም<br />
-                  ወደ ሗላ አትበል እንዳርህ እባክህ<br />
-                  ብለው ሲጠይቁኝ ምንድን ነው መስፈርትህ<br />
-                  ምክራቸውን ሰምቸ ለማግባት ስወስን<br />
-                  ልጆች ሲያገናኙኝ መስፈርት ስደረድር<br />
-                  ከ አንዷ ጋር አውርቸ ከ አንዷጋር ስጀምር<br />
-                  አልዋጥልኝ ሲል ሌላ ስቀያይር<br />
-                  ይህንን ሁኔታ በደንብ ያስተዋሉ<br />
-                  ላታገባ ነገር አንፈልግም አሉ<br />
-                  አበዛኸው በጣም አካበድክ የ እውነት<br />
-                  አሻሽል መስፈርትህን ከወሰንክ ለማግባት<br />
-                  ከ እከሊት በላይ ቆይ የት ይገኛል ሴት<br />
-                  ጉድ አይተን በ እውነት የምታገባትን ሴት<br />
-                  የሚሉም አልጠፉም ስላበዛሁ መስፈርት።<br /><br />
-
-                  ጥርስ ፣አፍንጫ አይኗ ማራኪ የሆነች<br />
-                  የቆንጆዋ እመቤት ኧረ ግን የት አለች<br />
-                  ሰለፍይ የሆነች የተውሂድ አበባ<br />
-                    የተስተካከለች  ሱናን ተከናንባ<br />
-                  ግሩም ፀባይ ያላት ሞገስን ደርባ<br />
-                  ሰወቹ የሚሏት ውበት በርሷ በቃ<br />
-                  የተስተካከለች ኸልቀን ወኹሉቃ፡<br />
-                  የባለቤቷን ሀቅ ያወቀች ጠንቅቃ፡<br />
-                  በእምነቷ የፀናች የምድር ላይ ኮከብ፡<br />
-                  ውድ ባለቤቷን የምትንከባከብ፡<br />
-                  ውበቷ ማራኪ የእንስቶች የበላይ፡<br />
-                  ከሌሎች በልጣ ደምቃ የምትታይ፡<br /><br />
-
-                  ትዕግስት በማድረግ ሲያጋጥማት እክል፡<br />
-                  ጥፋቴን የምነግረኝ እኔ እንዳስተካክል<br />
-                  ስሜት አሸንፏት የማትገባ ገደል፡<br />
-                  ለዘመናችን እንስቶች የምትሆን ሞደል፡<br />
-                  ሳቋ ጨዋታዋ ሁሌም ተናፋቂ፡<br />
-                  ቁጥብ ንግግሯ መንፈስ አነቃቂ፡<br />
-                  ሐዘኔን አጥፍታ የምትሞላ ሀሴት፡<br />
-                  የለችም ማለት ነው እንደዚች አይነት ሴት፡<br />
-                  በማለት ጠየኩኝ ግራ ተጋብቸ <br />
-                  ከብዙ እህቶች ጋር በሰፊው አውርቸ<br />
-                  ብየ ማሰብ ጀመርኩ በቃ በዚች አለም<br />
-                  በኔ መስፈርት እንኳ ቆንጆ እሚባል የለም።<br />
-                  በዱአ ይሻልል በማለት አሰብኩኝ <br />
-                  ሁሉንም ተውኩና ወደ ፀሎት ዞርኩኝ<br />
-                  በዚህ መካከል ድንገት የተገኘሽ<br />
-                  በቁንጅና በኩል ወደር የማይወጣልሽ<br />
-                  ታታሪዋ ቆንጆ ዜድየ አንቺ እኮ ሆንሽ<br /><br />
-
-                  ገና ከ ጅምሩ ታርክሽ ሲነገር<br />
-                  ቸኩየ ነበረ ለማየት ቁምነገር<br />
-                  አላህ ፈቀደና መገናኛ ሳይሽ<br />
-                  ወሚነል አጃኢብ በጣም ቆንጂየ ነሽ<br />
-                  ምንም ሳናወራ ሳታቂኝ ሳላውቅሽ<br />
-                  ለምን እንዴሁ እንጃ አረፍኩኝ ወድጀሽ<br />
-                  ያኔ በሰአቱ  ላይ ስለሆንሽ<br />
-                  ስለፈጠንሽብኝ ወደ ገብተሽ<br />
-                  ድጋሜ ለማየት በጣም ቋመጥኩልሽ<br />
-                  አላህ ፈቀደና ድጋሜም አየሁሽ<br />
-                  የሚጨመር እንጂ የሚቀንስ የለሽ<br />
-                  ግሩም አፈጣጠር ጀባሩ የቸረሽ<br />
-                  ድንቅ ጥበብ አለሁ ሁሉ ሰውነተሽ<br />
-                  ለምሳሌ ያክል ትንሽ ልጥቀስልሽ<br />
-                  ሰልካካው አፍንጫሽ፣ ያይንሽ ውስጥ ፍካት<br />
-                  ርብትብት ከንፈርሽ፣ የጥርሶችሽ ንጣት<br />
-                  ሸፍነሽ የያሽው ረጅሙ ጸጉርሽ<br />
-                  የቁመናሽ ማማር፣ የዳሌሽ የጡትሽ<br />
-                  የተረከዝሽ ልክ፣ የጭንሽ የባትሽ<br />
-                  ታአምር መስሎ ታየኝ   ውበትሽ<br />
-                  ከዚያኛው በጥቂት፣ ከዚህም በጥቂት<br />
-                  ቆንጠርጠር አድርጎ<br />
-                  ሞርዶና ልጎ<br />
-                  በረቀቀ ሚዛን በሚደንቅ ልኬት<br />
-                  ሰድሮ ገጥሟቼው<br />
-                  ባንድ አዋህዷቼው<br />
-                  ከውስጥ ዘዋሪ<br />
-                  ተምዘግዛጊ አዕምሮ<br />
-                  ብቡ ልብ ሰጥቷቼው፦<br /><br />
-
-                  የሚፈጥሩት ኅብር፣ የሚሠሩት ትርዒት<br />
-                  የሚልኩት ጨረር፣ የሚልኩት መልዕክት<br />
-                  ፍጥጥ ብየ ሳይሽ ያ...ሰላም ባግራሞት<br />
-                  ሰተት ብሎ ገብቶ በ ሁለት ዓይኔ ውስጥ<br />
-                  አንድም ሳይሰበር አንድም ቦታ ሳይጎብጥ<br />
-                  ልዩ ጉልበት ስላለው የሚጥል ለልክፍት<br />
-                  እኔም ተያዝኩና  ተለክፌ አረፍኩት <br />
-                  ከዚያ እማ በሗላ ጌታየን ለመንኩት<br />
-                  ለኔ አድርግልኝ አደራህን አለኩት<br />
-                  አላህ ፈቀደና ከ ጎኔ ሆንሽልኝ<br />
-                  አኔን አስደስተሽ ቤቴን አሞቅሽልኝ<br />
-                  ማንነቴን ሁሉ ጨርሰሽ ወሰድሺው<br />
-                  አንቺ ሁነሽ ቀረሽ ልቤን የረታሽው<br />
-                  በፍቅር ሰንሰለት አስረሽ የገረፍሽው<br />
-                  ስቀመጥ ስነሳ አንቺን አስባለሁ<br />
-                  ሁልጊዜም ይገርምሽ እኔ እወድሻለሁ።<br />
-                </div>
-              </div>
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem1')">
-                  💌 እኔ እወድሻለሁ
-                </button>
-                <div id="poem1" class="poem-content hidden">
-                  እልፍ አእላፍ ሌሊት <br />
-                  ሚሊዮን መሰለኝ<br />
-
-                  ፍቅሬ አንችን ስወድሽ ቀኑ ረዘመብኝ ።<br />
-
-                  እኔ እወድሻለሁ<br />
-
-                  የሰማይ መሬቱን<br />
-
-                  የባህር ስፋቱን<br />
-
-                  የዓለም ዳርቻ የርቀቱን ያህል<br />
-
-                  እንደ ፅጌ - ረዳ<br />
-
-                  እንደ አደይ አበባ<br />
-
-                  እንደ ሎሚ ሽታ ፡፡<br />
-
-                  እንደ እጣን ጢስ እንጨት ፣ እንደ ከርቤ ብርጉድ ፣<br />
-
-                  እኔ እወድሻለሁ ፣<br />
-
-                  _አበባ እንዳየ ንብ ፡፡<br />
-
-                  እንደ ቢራቢሮ ጫካ እንደሚያስሰው<br />
-
-                  ፍቅርሽን በፍቅሬ በፍቅርሽ ልቅመሰው<br />
-
-                  ማር ወለላዬ ነሽ ከረሜላ ስኩዋር<br />
-
-                  አማርኛ አይበቃ ፤<br />
-
-                  ወይ ጉድ !<br />
-
-                  ባለም ቋንቋ ሁሉ ቢወራ ቢነገር ፣<br />
-
-                  እኔ እወድሻለሁ<br />
-
-                  እንደማታ ጀንበር ።<br />
-
-                  እንደ ጨረቃ ጌጥ ፣ እንደ ንጋት ኮከብ ፣<br />
-                  እኔ እማልጠግብሽ<br />
-
-                  ስወድሽ ፣ ስወድሽ ፣ ስወድሽ ፣ ስወድሽ ፡<br />
-                  ጣት እንደ ቀለበት ጣቴ እንደ ጣትሽ<br />
-
-                  ሀሳቤ የናፍቆት አንቺ የህልሜ ትርጉም ።<br />
-
-                  ፍቅር ሲጀምር ተጀምሮ በፊት እንደማያውቀው<br />
-
-                  አሁን ዛሬ ነገም እንደማይረሳው ።<br />
-
-                  ፍቅሬ አንቺን ስወድሽ<br />
-
-                  በብዙ ሺህ ዘመናት<br />
-
-                  እልፍ አእላፍ ሌሊት<br />
-
-                  ሚሊዮን መሰለኝ ።<br />
-
-                  መድሃኒቴ ጧቴ ማታዬ ማረፊያዬ<br />
-
-                  ህይወቴ ብርሃኔ<br />
-
-                  እኔ እወድሻለሁ ።<br />
-                </div>
-              </div>
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem4')">
-                  🌺ፍቅር ግን ሲገርም
-                </button>
-                <div id="poem4" class="poem-content hidden">
-                  
-                  :¨"""""""""""""""""
-        ​​​ይመስለኝ ነበር ማፍቀር ዝቅ ማለት፣<br>
-        ሸሪአን ሁሉ ጥሶ በውርደት ሰንሰለት፣<br>
-        ተጣብቆ እንደመቅረት፣<br>
-        ሌላ አለም ፈጥሮ ለብቻ እንደ መሞት፨<br>
-        
-        ግን.......<br>
-        
-        ግን ልክ እንዳንቺ አይነት<br>
-        ለደስታ መሰረት<br>
-        ሁኖ ከመገኘት፣<br>
-        ሌላ ምን ይኖራል ለህይወት መዳኒት?!<br>
-        .....<br>
-        መሰረት የሆንሺው ለህይወቴ ደስታ፣<br>
-        ልቤ እንድታስብ ስላንቺ አብዝታ፣<br>
-        በፍቅርሽ ተጠልፋ ባንቺ ስትረታ፣<br>
-        የታሰረው አለም በፍቅርሽ ተፈታ፨<br>
-        
-        ግን ይታወቅሻል?...........<br>
-        
-        ፀሀይ ነህ ለልቤ ደምቆ እንዲበራ፣<br>
-        ዱአየ እንዲሰምር ሀሳቤ እንዲሰራ፣<br>
-        ቅኔ ነሽ ለልቤ የቃላት ቋጠሮ፣<br>
-        ልቤ በልብሽ ላይ እንዲበራ ሰምሮ፣<br>
-        ምላሽሽ ነው ምቴ የልቤ ፍላፄ፣<br>
-        ጮክ ብየ ልናገር ይሰማልኝ ድምፄ፣<br>
-        እ🌺ወ🌺ድ🌺ሻ🌺ለ🌺ሁ እስኪጠፍ ነፍሴ........
-        
-                </div>
-              </div>
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem5')">
-                  💌 ግጥም
-                </button>
-                <div id="poem5" class="poem-content hidden">
-                  በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
-                </div>
-              </div>
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem6')">
-                  💌 ግጥም
-                </button>
-                <div id="poem6" class="poem-content hidden">
-                  በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
-                </div>
-              </div>
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem7')">
-                  💌 ግጥም
-                </button>
-                <div id="poem7" class="poem-content hidden">
-                  በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
-                </div>
-              </div>
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem8')">
-                  💌 ግጥም
-                </button>
-                <div id="poem8" class="poem-content hidden">
-                  በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
-                </div>
-              </div>
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem9')">
-                  💌 ግጥም
-                </button>
-                <div id="poem9" class="poem-content hidden">
-                  በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
-                </div>
-              </div>
-              <div class="poem-item">
-                <button class="poem-button" onclick="togglePoem('poem10')">
-                  💌 ግጥም
-                </button>
-                <div id="poem10" class="poem-content hidden">
-                  በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
-                </div>
-              </div>
-            </div>
-           
-          </div>
-
-          <div id="images" class="section image-section-title">
-            <h2>የተለያዩ የማስታዎሻ ፎቶዎች</h2>
-            <div class="slideshow-container">
-              <div class="slide fade">
-                <img src="assets/05.jpg" class="slide-image" alt="Slide 1" />
-                <div class="caption">You are my heart ❤️</div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/02.jpg" class="slide-image" alt="Slide 2" />
-                <div class="caption">
-                  Every moment with you is a treasure 💎
-                </div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/13.jpg" class="slide-image" alt="Slide 3" />
-                <div class="caption">Forever and always 💖</div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/06.jpg" class="slide-image" alt="Slide 3" />
-                <div class="caption">አንቺ የልቤ ትርታ ነሽ፣ እያንዳንዱ ትርታ የፍቅር ዜማ ነው።💖</div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/07.jpg" class="slide-image" alt="Slide 3" />
-                <div class="caption">ፈገግታሽ የጠዋት ፀሐዬ ነው፣ ቀኔን ሁሉ ያበራልኝ።🌷</div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/08.jpg" class="slide-image" alt="Slide 3" />
-                <div class="caption">ካንቺ ጋር ያሳለፍኩት እያንዳንዱ ደቂቃ በፍቅር መጽሐፌ ውስጥ ያለ ውብ ምዕራፍ ነው።🌳</div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/09.jpg" class="slide-image" alt="Slide 3" />
-                <div class="caption">የኔ ውድ የ ሁልግዜም ማስታዎሻየ ነሽ💖</div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/10.jpg" class="slide-image" alt="Slide 3" />
-                <div class="caption">አንቺን መውደድ መታደል ነው 🌿 </div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/11.jpg" class="slide-image" alt="Slide 3" />
-                <div class="caption">የመጀምሪያው የድስታየ ቀን የጀመረበት🌳</div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/12.jpg" class="slide-image" alt="Slide 3" />
-                <div class="caption">🌹 ሁልግዜም እወድሻለሁ።</div>
-              </div>
-              <div class="slide fade">
-                <img src="assets/13.jpg" class="slide-image" alt="Slide 3" />
-                <div class="caption">🌾የፍቅሬ መጀመሪያና መጨረሻ ነሽ</div>
-              </div>
-              <a class="prev" onclick="plusSlides(-1)">❮</a>
-              <a class="next" onclick="plusSlides(1)">❯</a>
-            </div>
-            <br />
-            <div style="text-align: center">
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-              <span class="dot" onclick="currentSlide(3)"></span>
-              <span class="dot" onclick="currentSlide(4)"></span>
-              <span class="dot" onclick="currentSlide(5)"></span>
-              <span class="dot" onclick="currentSlide(6)"></span>
-              <span class="dot" onclick="currentSlide(7)"></span>
-              <span class="dot" onclick="currentSlide(8)"></span>
-              <span class="dot" onclick="currentSlide(9)"></span>
-              <span class="dot" onclick="currentSlide(10)"></span>
-              <span class="dot" onclick="currentSlide(11)"></span>
-            </div>
-          </div>
-          <div id="quotes" class="section">
-            <h2 class="section-title">💖 Heartfelt Quotes</h2>
-            <div class="quote-slideshow">
-              <div class="quote-slide active">
-                "You are the poem I never knew how to write, and this life is
-                the story I've always wanted to tell with you."
-              </div>
-              <div class="quote-slide">
-                "Your smile is the sunrise that lights up my every morning."
-              </div>
-              <div class="quote-slide">
-                "In your eyes, I found my home. In your heart, I found my
-                forever."
-              </div>
-              <div class="quote-slide">
-                "Every moment with you is a beautiful chapter in my book of
-                love."
-              </div>
-            </div>
-          </div>
-
-          <!-- <div id="videos" class="section">
-            <h2>🎥የተለያዩ ቪድዮች</h2>
-            <video controls width="100%">
-              <source src="assets/video1.mp4" type="video/mp4" />
-              Your browser doesn't support video.
-            </video>
-            <video controls width="100%">
-              <source src="assets/video2.mp4" type="video/mp4" />
-              Your browser doesn't support video.
-            </video>
-          </div> -->
-          <div id="videos" class="section">
-            <!-- የርዕስ ማሻሻያ ከአዲስ አይኮን ጋር -->
-            <h2 class="section-title">
-                <i class="bi bi-camera-reels-fill"></i> የእኛ የደስታ ትዝታዎች
-            </h2>
-            
-            <!-- የቪድዮ ፍለጋ ባህሪ -->
-            <div class="video-search">
-                <input type="text" id="video-search" placeholder="ቪድዮ ፈልግ..." oninput="searchVideos()">
-                <i class="bi bi-search"></i>
-            </div>
-        
-            <!-- የቪድዮ ጋለሪ -->
-            <div class="video-gallery">
-                <!-- ቪድዮ 1 -->
-                <div class="video-card" data-title="የእርስዎ ልዩ ቀን">
-                    <div class="video-wrapper">
-                        <video controls poster="assets/video1-thumbnail.jpg">
-                            <source src="https://drive.google.com/file/d/1peXemH7-oRKjMzGR8fU1dtWJazl8pbUA/view?usp=sharing" type="video/mp4">
-                        </video>
-                        <div class="video-overlay">
-                            <button class="play-btn" onclick="playFullscreen('assets/video1.mp4')">
-                                <i class="bi bi-play-fill"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                       <h3>ህልም አለኝ ግጥም ቁ 1</h3>
-                        <span class="video-date">ጥር 1, 2017</span>
-                        <div class="video-actions">
-                            <button class="like-btn"><i class="bi bi-heart"></i></button>
-                            <button class="share-btn"><i class="bi bi-share"></i></button>
-                        </div>
+        <!-- Main App -->
+        <div id="main-app" class="main-app hidden">
+            <!-- Navbar -->
+            <div class="navbar">
+                <div class="navbar-left">
+                    <img src="assets/logo.jpg" class="navbar-logo pulse" alt="Our Love"/>
+                    <div class="navbar-title">
+                        <span class="title-main">My Eternal Love</span>
+                        <span class="title-sub">(የልቤ ብቸኛ)</span>
                     </div>
                 </div>
-        
-                <!-- ቪድዮ 2 -->
-                <div class="video-card" data-title="አብረን ያሳለፍናቸው">
-                    <div class="video-wrapper">
-                        <video controls poster="assets/video2-thumb.jpg">
-                            <source src="https://drive.google.com/file/d/1tdb3fD1l24XYqcLnG9EDu8vUaB8d-2Cr/view?usp=sharing" type="video/mp4">
-                        </video>
-                        <div class="video-overlay">
-                            <button class="play-btn" onclick="playFullscreen('assets/video2.mp4')">
-                                <i class="bi bi-play-fill"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <h3>ህልም አለኝ ግጥም ቁ 2</h3>
-                        <span class="video-date"> ጥር 9, 2017</span>
-                        <div class="video-actions">
-                            <button class="like-btn"><i class="bi bi-heart"></i></button>
-                            <button class="share-btn"><i class="bi bi-share"></i></button>
-                        </div>
+                
+                <div class="navbar-right">
+                    <div class="love-message">
+                        <span class="message-text">"Forever Yours"</span>
+                        <span class="message-heart">💖</span>
+                        <span class="message-sub">(ለዘላለም ያንቺው ነኝ!)</span>
                     </div>
                 </div>
-                 <!-- ቪድዮ 3 -->
-                 <div class="video-card" data-title="አብረን ያሳለፍናቸው">
-                  <div class="video-wrapper">
-                      <video controls poster="assets/video2-thumb.jpg">
-                          <source src="assets/video2.mp4" type="video/mp4">
-                      </video>
-                      <div class="video-overlay">
-                          <button class="play-btn" onclick="playFullscreen('assets/video2.mp4')">
-                              <i class="bi bi-play-fill"></i>
-                          </button>
+                
+                <button class="navbar-toggle" onclick="toggleSidebar()">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <img src="assets/logo.jpg" alt="Our Love" class="sidebar-logo pulse">
+                    <h3>የልቤ ሙሉነት</h3>
+                    <div class="hearts-container"></div>
+                </div>
+                <ul>
+                    <li onclick="navigateTo('welcome')">
+                        <i class="bi bi-house-heart-fill"></i>
+                        <span>መግቢያ</span>
+                        <div class="hover-effect"></div>
+                    </li>
+                    <li onclick="navigateTo('poems')">
+                        <i class="bi bi-heart-fill"></i>
+                        <span>ግጥሞች</span>
+                        <div class="hover-effect"></div>
+                    </li>
+                    <li onclick="navigateTo('images')">
+                        <i class="bi bi-image-fill"></i>
+                        <span>የፍቅር ትዝታዎች</span>
+                        <div class="hover-effect"></div>
+                    </li>
+                    <li onclick="navigateTo('quotes')">
+                        <i class="bi bi-chat-heart-fill"></i>
+                        <span>የልብ ቃላት</span>
+                        <div class="hover-effect"></div>
+                    </li>
+                    <li onclick="navigateTo('videos')">
+                        <i class="bi bi-camera-reels-fill"></i>
+                        <span>የደስታ ቅጂዎች</span>
+                        <div class="hover-effect"></div>
+                    </li>
+                </ul>
+                <div class="sidebar-footer">
+                    <p>❤️ ፍቅራችን ዘላቂ ይሁን ❤️</p>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <!-- Welcome Section -->
+                <div id="welcome" class="section active megbiya">
+                    <div class="love-stamp">❤️ Forever Yours</div>
+                    <h2 class="animated romantic-title">💕 እንኳን ደህና መጣሽ ፍቅሬ 💕</h2>
+                    <h4 class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h4>
+                    <div class="love-letter">
+                        <!-- [Previous content remains the same] -->
+                        <p class="">
+                            <em>
+                              በመጀመሪያ አንቺን የመሰለች ልዩ እንስት ለሰጠኝ ጌታ አልሐምዱሊላሂ ረቢል ዓለሚን! ምስጋና ሁሉ
+                              ለአለማቱ ጌታ ለአላህ (ሱ.ወ) የተገባ ይሁን። ውድ ባለቤቴ... የህይወቴ ፀዳል፣ የቤቴ እርጋታ፣
+                              የልቤ የደስታ ምንጭ!</em
+                            >
+                            <br />
+              
+                            አላህ (ሱ.ወ) በሰፊው ጸጋው ለኔ አንቺን ስላደለኝ ምንኛ ምስጉን ነኝ! አንቺ የኔ መልካም እጣ ፋንታዬ፣
+                            የችግሬ መፍትሄ፣ የደስታዬም ማብቂያ የለሽ ምንጭ ነሽ።<br />
+              
+                            አንቺን የመሰለች ገር፣ አዛኝ፣ ዲንሽና ቤተሰቧን የምትወድ ሚስት ስለሰጠኝ አላህን በየጊዜው
+                            አመሰግነዋለሁ። ይህ በእርግጥም የአላህ ትልቅ ውለታው ነው!. ይህ አፕሊኬሽን የፍቅራችን ማሳያ፣
+                            የትዝታዎቻችን መዝገብ፣ የአንድነታችንም ምልክት እንዲሆን ታስቦ የተሰራ ነው። በውስጡ የፍቅር
+                            መልእክቶቻችንን፣ የደስታ ጊዜዎቻችንን፣ ያሳለፍናቸውን ውብ ትዝታዎች እንዲሁም ወደፊትም አብረን ለመኖር
+                            ያሰብናቸውን መልካም እቅዶች ይዟል። አላህ ሆይ! ፍቅራችንን በዱንያም በአኺራም ዘላቂ አድርግልን።
+                            በመልካም ነገር ላይ አግዘን፤ ከክፉ ነገርም ጠብቀን። ልጆቻችንንና ትውልዳችንን በመልካም እምነት
+                            አሳድግልን። ውዴ ሆይ! ይህ አፕሊኬሽን ለአንቺ ያለኝን ጥልቅ ፍቅርና ምስጋና በትንሹም ቢሆን የሚገልጽልኝ
+                            ስጦታዬ ነው። እንኳን ደህና መጣሽ! ህይወቴ በአንቺ ተሞልቷል!
+                          </p>
+                    </div>
+                    <div class="signature">
+                        <p>With all my love,</p>
+                        <div class="signature-line"></div>
+                        <p class="signature-name">[Your Name]</p>
+                    </div>
+                </div>
+
+                <!-- [Other sections remain the same but with enhanced romantic styling] -->
+
+                <div id="poems" class="section">
+                    <h2  class="animated  image-section-title">
+                      ግጥሞች
+                    </h2>
+                    <div class="poem-list">
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem2')">
+                          🌹የማለዳ ፀሀይ
+                        </button>
+                        <div id="poem2" class="poem-content hidden">
+                          🌹<b>የኔ ውድ 🌹</b><br />
+                                  አንቺ ማለት ለኔ <br />
+                             በአይኔ ተለኩሰሽ<br />
+                             በልቤ የበራሽ<br />
+                             መቼም የማትጠፊ<br />
+                             የልቤ ሻማ ነሽ<br />
+                               <b>🌹 የኔ ጣፋጭ🌹<br /></b>       አንቺ ማለት ለኔ<br />
+                                ከማለዳው ፀሀይ<br />
+                                ብርሀን ፍንጣቂው<br />
+                                 ከውቧ ጨረቃ<br />
+                                 ምሽቱን አድማቂ<br />
+                                 ከሚያምሩት ኮከቦች<br />
+                                 ነሽ የምትልቂ<br />
+        
+                                  <b> 🌹የኔ ህይወት🌹<br /></b>             አንቺ ማለት ለኔ<br />
+                                    ከልቤ ላይ ውለሽ<br />
+                                   በልቤ የምታድሪ<br />
+                              የውስጤ ንግስት ነሽ<br />
+                               ሁሌም የምትኖሪ።<br />
+        
+                          ረበና የሰጠኝ ከኔጋ ነዋሪ<br />
+                          ረበና ሰጠኝ ከኔጋ ነዋሪ!!!
+                        </div>
                       </div>
-                  </div>
-                  <div class="video-info">
-                      <h3>አብረን ያሳለፍናቸው</h3>
-                      <span class="video-date"> ወደፊት የሚስተካክል</span>
-                      <div class="video-actions">
-                          <button class="like-btn"><i class="bi bi-heart"></i></button>
-                          <button class="share-btn"><i class="bi bi-share"></i></button>
+        
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem3')">
+                          🌙 ከ ጅምር እስካሁን
+                        </button>
+                        <div id="poem3" class="poem-content hidden">
+                          እንዲህ ነበር ውዴ ልንገርሽ በግጥም<br />
+                          ጓደኞቸ ሲሉኝ ለምን አታገባም<br />
+                          ይደብራል እኮ ያለትዳር አለም<br />
+                          ወደ ሗላ አትበል እንዳርህ እባክህ<br />
+                          ብለው ሲጠይቁኝ ምንድን ነው መስፈርትህ<br />
+                          ምክራቸውን ሰምቸ ለማግባት ስወስን<br />
+                          ልጆች ሲያገናኙኝ መስፈርት ስደረድር<br />
+                          ከ አንዷ ጋር አውርቸ ከ አንዷጋር ስጀምር<br />
+                          አልዋጥልኝ ሲል ሌላ ስቀያይር<br />
+                          ይህንን ሁኔታ በደንብ ያስተዋሉ<br />
+                          ላታገባ ነገር አንፈልግም አሉ<br />
+                          አበዛኸው በጣም አካበድክ የ እውነት<br />
+                          አሻሽል መስፈርትህን ከወሰንክ ለማግባት<br />
+                          ከ እከሊት በላይ ቆይ የት ይገኛል ሴት<br />
+                          ጉድ አይተን በ እውነት የምታገባትን ሴት<br />
+                          የሚሉም አልጠፉም ስላበዛሁ መስፈርት።<br /><br />
+        
+                          ጥርስ ፣አፍንጫ አይኗ ማራኪ የሆነች<br />
+                          የቆንጆዋ እመቤት ኧረ ግን የት አለች<br />
+                          ሰለፍይ የሆነች የተውሂድ አበባ<br />
+                            የተስተካከለች  ሱናን ተከናንባ<br />
+                          ግሩም ፀባይ ያላት ሞገስን ደርባ<br />
+                          ሰወቹ የሚሏት ውበት በርሷ በቃ<br />
+                          የተስተካከለች ኸልቀን ወኹሉቃ፡<br />
+                          የባለቤቷን ሀቅ ያወቀች ጠንቅቃ፡<br />
+                          በእምነቷ የፀናች የምድር ላይ ኮከብ፡<br />
+                          ውድ ባለቤቷን የምትንከባከብ፡<br />
+                          ውበቷ ማራኪ የእንስቶች የበላይ፡<br />
+                          ከሌሎች በልጣ ደምቃ የምትታይ፡<br /><br />
+        
+                          ትዕግስት በማድረግ ሲያጋጥማት እክል፡<br />
+                          ጥፋቴን የምነግረኝ እኔ እንዳስተካክል<br />
+                          ስሜት አሸንፏት የማትገባ ገደል፡<br />
+                          ለዘመናችን እንስቶች የምትሆን ሞደል፡<br />
+                          ሳቋ ጨዋታዋ ሁሌም ተናፋቂ፡<br />
+                          ቁጥብ ንግግሯ መንፈስ አነቃቂ፡<br />
+                          ሐዘኔን አጥፍታ የምትሞላ ሀሴት፡<br />
+                          የለችም ማለት ነው እንደዚች አይነት ሴት፡<br />
+                          በማለት ጠየኩኝ ግራ ተጋብቸ <br />
+                          ከብዙ እህቶች ጋር በሰፊው አውርቸ<br />
+                          ብየ ማሰብ ጀመርኩ በቃ በዚች አለም<br />
+                          በኔ መስፈርት እንኳ ቆንጆ እሚባል የለም።<br />
+                          በዱአ ይሻልል በማለት አሰብኩኝ <br />
+                          ሁሉንም ተውኩና ወደ ፀሎት ዞርኩኝ<br />
+                          በዚህ መካከል ድንገት የተገኘሽ<br />
+                          በቁንጅና በኩል ወደር የማይወጣልሽ<br />
+                          ታታሪዋ ቆንጆ ዜድየ አንቺ እኮ ሆንሽ<br /><br />
+        
+                          ገና ከ ጅምሩ ታርክሽ ሲነገር<br />
+                          ቸኩየ ነበረ ለማየት ቁምነገር<br />
+                          አላህ ፈቀደና መገናኛ ሳይሽ<br />
+                          ወሚነል አጃኢብ በጣም ቆንጂየ ነሽ<br />
+                          ምንም ሳናወራ ሳታቂኝ ሳላውቅሽ<br />
+                          ለምን እንዴሁ እንጃ አረፍኩኝ ወድጀሽ<br />
+                          ያኔ በሰአቱ  ላይ ስለሆንሽ<br />
+                          ስለፈጠንሽብኝ ወደ ገብተሽ<br />
+                          ድጋሜ ለማየት በጣም ቋመጥኩልሽ<br />
+                          አላህ ፈቀደና ድጋሜም አየሁሽ<br />
+                          የሚጨመር እንጂ የሚቀንስ የለሽ<br />
+                          ግሩም አፈጣጠር ጀባሩ የቸረሽ<br />
+                          ድንቅ ጥበብ አለሁ ሁሉ ሰውነተሽ<br />
+                          ለምሳሌ ያክል ትንሽ ልጥቀስልሽ<br />
+                          ሰልካካው አፍንጫሽ፣ ያይንሽ ውስጥ ፍካት<br />
+                          ርብትብት ከንፈርሽ፣ የጥርሶችሽ ንጣት<br />
+                          ሸፍነሽ የያሽው ረጅሙ ጸጉርሽ<br />
+                          የቁመናሽ ማማር፣ የዳሌሽ የጡትሽ<br />
+                          የተረከዝሽ ልክ፣ የጭንሽ የባትሽ<br />
+                          ታአምር መስሎ ታየኝ   ውበትሽ<br />
+                          ከዚያኛው በጥቂት፣ ከዚህም በጥቂት<br />
+                          ቆንጠርጠር አድርጎ<br />
+                          ሞርዶና ልጎ<br />
+                          በረቀቀ ሚዛን በሚደንቅ ልኬት<br />
+                          ሰድሮ ገጥሟቼው<br />
+                          ባንድ አዋህዷቼው<br />
+                          ከውስጥ ዘዋሪ<br />
+                          ተምዘግዛጊ አዕምሮ<br />
+                          ብቡ ልብ ሰጥቷቼው፦<br /><br />
+        
+                          የሚፈጥሩት ኅብር፣ የሚሠሩት ትርዒት<br />
+                          የሚልኩት ጨረር፣ የሚልኩት መልዕክት<br />
+                          ፍጥጥ ብየ ሳይሽ ያ...ሰላም ባግራሞት<br />
+                          ሰተት ብሎ ገብቶ በ ሁለት ዓይኔ ውስጥ<br />
+                          አንድም ሳይሰበር አንድም ቦታ ሳይጎብጥ<br />
+                          ልዩ ጉልበት ስላለው የሚጥል ለልክፍት<br />
+                          እኔም ተያዝኩና  ተለክፌ አረፍኩት <br />
+                          ከዚያ እማ በሗላ ጌታየን ለመንኩት<br />
+                          ለኔ አድርግልኝ አደራህን አለኩት<br />
+                          አላህ ፈቀደና ከ ጎኔ ሆንሽልኝ<br />
+                          አኔን አስደስተሽ ቤቴን አሞቅሽልኝ<br />
+                          ማንነቴን ሁሉ ጨርሰሽ ወሰድሺው<br />
+                          አንቺ ሁነሽ ቀረሽ ልቤን የረታሽው<br />
+                          በፍቅር ሰንሰለት አስረሽ የገረፍሽው<br />
+                          ስቀመጥ ስነሳ አንቺን አስባለሁ<br />
+                          ሁልጊዜም ይገርምሽ እኔ እወድሻለሁ።<br />
+                        </div>
                       </div>
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem1')">
+                          💌 እኔ እወድሻለሁ
+                        </button>
+                        <div id="poem1" class="poem-content hidden">
+                          እልፍ አእላፍ ሌሊት <br />
+                          ሚሊዮን መሰለኝ<br />
+        
+                          ፍቅሬ አንችን ስወድሽ ቀኑ ረዘመብኝ ።<br />
+        
+                          እኔ እወድሻለሁ<br />
+        
+                          የሰማይ መሬቱን<br />
+        
+                          የባህር ስፋቱን<br />
+        
+                          የዓለም ዳርቻ የርቀቱን ያህል<br />
+        
+                          እንደ ፅጌ - ረዳ<br />
+        
+                          እንደ አደይ አበባ<br />
+        
+                          እንደ ሎሚ ሽታ ፡፡<br />
+        
+                          እንደ እጣን ጢስ እንጨት ፣ እንደ ከርቤ ብርጉድ ፣<br />
+        
+                          እኔ እወድሻለሁ ፣<br />
+        
+                          _አበባ እንዳየ ንብ ፡፡<br />
+        
+                          እንደ ቢራቢሮ ጫካ እንደሚያስሰው<br />
+        
+                          ፍቅርሽን በፍቅሬ በፍቅርሽ ልቅመሰው<br />
+        
+                          ማር ወለላዬ ነሽ ከረሜላ ስኩዋር<br />
+        
+                          አማርኛ አይበቃ ፤<br />
+        
+                          ወይ ጉድ !<br />
+        
+                          ባለም ቋንቋ ሁሉ ቢወራ ቢነገር ፣<br />
+        
+                          እኔ እወድሻለሁ<br />
+        
+                          እንደማታ ጀንበር ።<br />
+        
+                          እንደ ጨረቃ ጌጥ ፣ እንደ ንጋት ኮከብ ፣<br />
+                          እኔ እማልጠግብሽ<br />
+        
+                          ስወድሽ ፣ ስወድሽ ፣ ስወድሽ ፣ ስወድሽ ፡<br />
+                          ጣት እንደ ቀለበት ጣቴ እንደ ጣትሽ<br />
+        
+                          ሀሳቤ የናፍቆት አንቺ የህልሜ ትርጉም ።<br />
+        
+                          ፍቅር ሲጀምር ተጀምሮ በፊት እንደማያውቀው<br />
+        
+                          አሁን ዛሬ ነገም እንደማይረሳው ።<br />
+        
+                          ፍቅሬ አንቺን ስወድሽ<br />
+        
+                          በብዙ ሺህ ዘመናት<br />
+        
+                          እልፍ አእላፍ ሌሊት<br />
+        
+                          ሚሊዮን መሰለኝ ።<br />
+        
+                          መድሃኒቴ ጧቴ ማታዬ ማረፊያዬ<br />
+        
+                          ህይወቴ ብርሃኔ<br />
+        
+                          እኔ እወድሻለሁ ።<br />
+                        </div>
+                      </div>
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem4')">
+                          🌺ፍቅር ግን ሲገርም
+                        </button>
+                        <div id="poem4" class="poem-content hidden">
+                          
+                          :¨"""""""""""""""""
+                ​​​ይመስለኝ ነበር ማፍቀር ዝቅ ማለት፣<br>
+                ሸሪአን ሁሉ ጥሶ በውርደት ሰንሰለት፣<br>
+                ተጣብቆ እንደመቅረት፣<br>
+                ሌላ አለም ፈጥሮ ለብቻ እንደ መሞት፨<br>
+                
+                ግን.......<br>
+                
+                ግን ልክ እንዳንቺ አይነት<br>
+                ለደስታ መሰረት<br>
+                ሁኖ ከመገኘት፣<br>
+                ሌላ ምን ይኖራል ለህይወት መዳኒት?!<br>
+                .....<br>
+                መሰረት የሆንሺው ለህይወቴ ደስታ፣<br>
+                ልቤ እንድታስብ ስላንቺ አብዝታ፣<br>
+                በፍቅርሽ ተጠልፋ ባንቺ ስትረታ፣<br>
+                የታሰረው አለም በፍቅርሽ ተፈታ፨<br>
+                
+                ግን ይታወቅሻል?...........<br>
+                
+                ፀሀይ ነህ ለልቤ ደምቆ እንዲበራ፣<br>
+                ዱአየ እንዲሰምር ሀሳቤ እንዲሰራ፣<br>
+                ቅኔ ነሽ ለልቤ የቃላት ቋጠሮ፣<br>
+                ልቤ በልብሽ ላይ እንዲበራ ሰምሮ፣<br>
+                ምላሽሽ ነው ምቴ የልቤ ፍላፄ፣<br>
+                ጮክ ብየ ልናገር ይሰማልኝ ድምፄ፣<br>
+                እ🌺ወ🌺ድ🌺ሻ🌺ለ🌺ሁ እስኪጠፍ ነፍሴ........
+                
+                        </div>
+                      </div>
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem5')">
+                          💌 ግጥም
+                        </button>
+                        <div id="poem5" class="poem-content hidden">
+                          በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
+                        </div>
+                      </div>
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem6')">
+                          💌 ግጥም
+                        </button>
+                        <div id="poem6" class="poem-content hidden">
+                          በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
+                        </div>
+                      </div>
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem7')">
+                          💌 ግጥም
+                        </button>
+                        <div id="poem7" class="poem-content hidden">
+                          በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
+                        </div>
+                      </div>
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem8')">
+                          💌 ግጥም
+                        </button>
+                        <div id="poem8" class="poem-content hidden">
+                          በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
+                        </div>
+                      </div>
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem9')">
+                          💌 ግጥም
+                        </button>
+                        <div id="poem9" class="poem-content hidden">
+                          በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
+                        </div>
+                      </div>
+                      <div class="poem-item">
+                        <button class="poem-button" onclick="togglePoem('poem10')">
+                          💌 ግጥም
+                        </button>
+                        <div id="poem10" class="poem-content hidden">
+                          በመሰራት ላይ ስልሆነ እባክዎን በ ትዕግስት ይጠብቁን!
+                        </div>
+                      </div>
+                    </div>
+                   
                   </div>
-              </div>
+                  <div id="images" class="section image-section-title">
+                    <h2>የተለያዩ የማስታዎሻ ፎቶዎች</h2>
+                    <div class="slideshow-container">
+                      <div class="slide fade">
+                        <img src="assets/05.jpg" class="slide-image" alt="Slide 1" />
+                        <div class="caption">You are my heart ❤️</div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/02.jpg" class="slide-image" alt="Slide 2" />
+                        <div class="caption">
+                          Every moment with you is a treasure 💎
+                        </div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/13.jpg" class="slide-image" alt="Slide 3" />
+                        <div class="caption">Forever and always 💖</div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/06.jpg" class="slide-image" alt="Slide 3" />
+                        <div class="caption">አንቺ የልቤ ትርታ ነሽ፣ እያንዳንዱ ትርታ የፍቅር ዜማ ነው።💖</div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/07.jpg" class="slide-image" alt="Slide 3" />
+                        <div class="caption">ፈገግታሽ የጠዋት ፀሐዬ ነው፣ ቀኔን ሁሉ ያበራልኝ።🌷</div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/08.jpg" class="slide-image" alt="Slide 3" />
+                        <div class="caption">ካንቺ ጋር ያሳለፍኩት እያንዳንዱ ደቂቃ በፍቅር መጽሐፌ ውስጥ ያለ ውብ ምዕራፍ ነው።🌳</div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/09.jpg" class="slide-image" alt="Slide 3" />
+                        <div class="caption">የኔ ውድ የ ሁልግዜም ማስታዎሻየ ነሽ💖</div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/10.jpg" class="slide-image" alt="Slide 3" />
+                        <div class="caption">አንቺን መውደድ መታደል ነው 🌿 </div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/11.jpg" class="slide-image" alt="Slide 3" />
+                        <div class="caption">የመጀምሪያው የድስታየ ቀን የጀመረበት🌳</div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/12.jpg" class="slide-image" alt="Slide 3" />
+                        <div class="caption">🌹 ሁልግዜም እወድሻለሁ።</div>
+                      </div>
+                      <div class="slide fade">
+                        <img src="assets/13.jpg" class="slide-image" alt="Slide 3" />
+                        <div class="caption">🌾የፍቅሬ መጀመሪያና መጨረሻ ነሽ</div>
+                      </div>
+                      <a class="prev" onclick="plusSlides(-1)">❮</a>
+                      <a class="next" onclick="plusSlides(1)">❯</a>
+                    </div>
+                    <br />
+                    <div style="text-align: center">
+                      <span class="dot" onclick="currentSlide(1)"></span>
+                      <span class="dot" onclick="currentSlide(2)"></span>
+                      <span class="dot" onclick="currentSlide(3)"></span>
+                      <span class="dot" onclick="currentSlide(4)"></span>
+                      <span class="dot" onclick="currentSlide(5)"></span>
+                      <span class="dot" onclick="currentSlide(6)"></span>
+                      <span class="dot" onclick="currentSlide(7)"></span>
+                      <span class="dot" onclick="currentSlide(8)"></span>
+                      <span class="dot" onclick="currentSlide(9)"></span>
+                      <span class="dot" onclick="currentSlide(10)"></span>
+                      <span class="dot" onclick="currentSlide(11)"></span>
+                    </div>
+                  </div>
+                  <div  id="quotes" class="section image-section-title ">
+                    <h2 style="color: white;" class="section-title">💖 Heartfelt Quotes</h2>
+                    <div class="quote-slideshow">
+                      <div class="quote-slide active">
+                        "You are the poem I never knew how to write, and this life is
+                        the story I've always wanted to tell with you."
+                      </div>
+                      <div class="quote-slide">
+                        "አንቺን ሳገኝ ነው ፍቅር ምን እንደሆነ ያወቅኩት።."
+                      </div>
+                      <div class="quote-slide">
+                        "In your eyes, I found my home. In your heart, I found my
+                        forever."
+                      </div>
+                      <div class="quote-slide">
+                        "ከአንቺ ጋር ያሳለፍኩት እያንዳንዱ ጊዜ በፍቅር መጽሐፌ ውስጥ ያለ ውብ ምዕራፍ ነው።"
+                      </div>
+                    </div>
+                  </div>
+                  <div id="videos" class="section">
+                    <!-- የርዕስ ማሻሻያ ከአዲስ አይኮን ጋር -->
+                    <h2 class="section-title">
+                        <i class="bi bi-camera-reels-fill"></i> የእኛ የደስታ ትዝታዎች
+                    </h2>
+                    
+                    <!-- የቪድዮ ፍለጋ ባህሪ -->
+                    <div class="video-search">
+                        <input type="text" id="video-search" placeholder="ቪድዮ ፈልግ..." oninput="searchVideos()">
+                        <i class="bi bi-search"></i>
+                    </div>
+                
+                    <!-- የቪድዮ ጋለሪ -->
+                    <div class="video-gallery">
+                        <!-- ቪድዮ 1 -->
+                        <div class="video-card" data-title="የእርስዎ ልዩ ቀን">
+                            <div class="video-wrapper">
+                                <video controls poster="assets/video1-thumbnail.jpg">
+                                    <source src="assets/video1.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-overlay">
+                                    <button class="play-btn" onclick="playFullscreen('assets/video1.mp4')">
+                                        <i class="bi bi-play-fill"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                               <h3>ህልም አለኝ ግጥም ቁ 1</h3>
+                                <span class="video-date">ጥር 1, 2017</span>
+                                <div class="video-actions">
+                                    <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                    <button class="share-btn"><i class="bi bi-share"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- ቪድዮ 2 -->
+                        <div class="video-card" data-title="አብረን ያሳለፍናቸው">
+                            <div class="video-wrapper">
+                                <video controls poster="assets/video2-thumb.jpg">
+                                    <source src="assets/video2.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-overlay">
+                                    <button class="play-btn" onclick="playFullscreen('assets/video2.mp4')">
+                                        <i class="bi bi-play-fill"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h3>ህልም አለኝ ግጥም ቁ 2</h3>
+                                <span class="video-date"> ጥር 9, 2017</span>
+                                <div class="video-actions">
+                                    <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                    <button class="share-btn"><i class="bi bi-share"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- ቪድዮ 3 -->
+                         <div class="video-card" data-title="አብረን ያሳለፍናቸው">
+                          <div class="video-wrapper">
+                              <video controls poster="assets/video2-thumb.jpg">
+                                  <source src="assets/video2.mp4" type="video/mp4">
+                              </video>
+                              <div class="video-overlay">
+                                  <button class="play-btn" onclick="playFullscreen('assets/video2.mp4')">
+                                      <i class="bi bi-play-fill"></i>
+                                  </button>
+                              </div>
+                          </div>
+                          <div class="video-info">
+                              <h3>አብረን ያሳለፍናቸው</h3>
+                              <span class="video-date"> ወደፊት የሚስተካክል</span>
+                              <div class="video-actions">
+                                  <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                  <button class="share-btn"><i class="bi bi-share"></i></button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-      </div>
     </div>
 
+    <!-- Floating Hearts Container -->
+    <div id="floating-hearts"></div>
+
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
