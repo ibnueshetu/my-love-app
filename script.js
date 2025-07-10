@@ -356,3 +356,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+function logout() {
+    // Hide main app, show login screen
+    document.getElementById("main-app").classList.add("hidden");
+    document.getElementById("login-screen").classList.remove("hidden");
+    
+    // Clear input fields
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+    
+    // Reset error message
+    document.getElementById("error-msg").textContent = "";
+}
+
+// Add event listener (place this in your DOMContentLoaded or at the bottom of script.js)
+document.getElementById("logout-btn")?.addEventListener("click", logout);

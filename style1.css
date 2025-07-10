@@ -1000,4 +1000,21 @@ body {
   
   /* Fullscreen Video Player (keep this in your CSS) */
   /* [Your existing fullscreen video player styles] */
-  
+  /* Logout Button Styling */
+.logout-button {
+  background: transparent;
+  border: 2px solid var(--primary-love);
+  color:#f1eaea;
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  background: var(--primary-love);
+  color: white;
+  transform: translateY(-2px);
+}
