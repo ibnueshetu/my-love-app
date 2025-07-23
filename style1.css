@@ -1018,3 +1018,15 @@ body {
   color: white;
   transform: translateY(-2px);
 }
+/* YouTube Embed Container */
+.youtube-embed {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Hide YouTube logo when possible */
+.ytp-title-link {
+  display: none !important;
+}

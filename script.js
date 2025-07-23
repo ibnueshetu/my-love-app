@@ -299,31 +299,38 @@ function searchVideos() {
 }
 
 function initVideoSection() {
-  document.querySelectorAll('.video-card').forEach(card => {
+    document.querySelectorAll('.video-card').forEach(card => {
       const video = card.querySelector('video');
-      const playBtn = card.querySelector('.play-btn'); // Add this class to your play button
+      const playBtn = card.querySelector('.play-btn');
       
-      card.addEventListener('mouseenter', () => {
-          if (video) {
-              video.currentTime = 0;
-              video.play().catch(e => console.log('Autoplay prevented:', e));
-              if (playBtn) playBtn.style.display = 'none';
+      // Ensure video has controls
+      if (video) {
+        video.controls = true;
+        
+        // Click to play (fallback for autoplay restrictions)
+        video.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (video.paused) {
+            video.play();
+            playBtn.style.display = 'none';
+          } else {
+            video.pause();
+            playBtn.style.display = 'block';
           }
-      });
-      
-      card.addEventListener('mouseleave', () => {
-          if (video) {
-              video.pause();
-              if (playBtn) playBtn.style.display = 'block';
-          }
-      });
-      
-      // Add click handler for fullscreen
-      video?.addEventListener('click', () => {
+        });
+      }
+  
+      // Play button visibility
+      if (playBtn) {
+        playBtn.style.display = 'block'; // Force show initially
+        
+        playBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
           playFullscreen(video.src);
-      });
-  });
-}
+        });
+      }
+    });
+  }
 
 document.querySelectorAll('.like-btn').forEach(btn => {
     btn.addEventListener('click', function() {
@@ -371,3 +378,41 @@ function logout() {
 
 // Add event listener (place this in your DOMContentLoaded or at the bottom of script.js)
 document.getElementById("logout-btn")?.addEventListener("click", logout);
+// YouTube API Loader
+function loadYouTubeAPI() {
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+  }
+  
+  // Initialize players after API loads
+  function initYouTubePlayers() {
+    document.querySelectorAll('.youtube-embed').forEach(embed => {
+      const videoId = embed.dataset.id;
+      
+      new YT.Player(embed, {
+        videoId: videoId,
+        playerVars: {
+          'autoplay': 0,
+          'controls': 1,
+          'rel': 0, // Disable related videos
+          'modestbranding': 1, // Smaller YouTube logo
+          'fs': 1 // Allow fullscreen
+        },
+        events: {
+          'onReady': (event) => {
+            // Optional: Custom play button overlay
+            embed.parentElement.querySelector('.play-btn')?.addEventListener('click', () => {
+              event.target.playVideo();
+            });
+          }
+        }
+      });
+    });
+  }
+  
+  // Call this when page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    loadYouTubeAPI();
+    window.onYouTubeIframeAPIReady = initYouTubePlayers;
+  });
